@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "DogAccountBook.h"
 #include <algorithm>
 

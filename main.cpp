@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "Widgets/DABWidget.h"
 #include <QtWidgets/QApplication>
 

@@ -1,22 +1,43 @@
+/**
+ * @file DogAccountBook.h
+ * @brief 定义了DAB相关的数据类
+ * @author Shhyrule
+ * @version 1.0.0
+ * @date 2026-07-18
+ *
+ * 本项目采用 MIT 许可证。详细条款见 LICENSE 文件。
+ * SPDX-License-Identifier: MIT
+ */
+
 #pragma once
 
 #include <QList>
 #include <QDate>
 
+//DAB类型的枚举
 enum ERecordType {
+	//支出类型
 	EXPORT_TYPE,
+	//收入类型
 	IMPORT_TYPE,
 
 };
 
+//定义了DAB单条记录的数据结构
 struct FDogABRecord {
+	//记录的id
 	int id;
+	//记录的日期
 	QDate date;
+	//记录的类型
 	ERecordType record_type;
+	//记录的金额数量，对支出是实际价格，对收入是steam钱包中的实际收入
 	float num;
+	//记录的实际金额，对支出是考虑倒余额折扣实际的花费，对收入是倒余额的实际花费
 	float real_num;
 };
 
+//定义了DAB数据类
 class FDogAccountBook {
 	friend class YSqlDABManager;
 private:

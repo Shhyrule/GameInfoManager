@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "SqlDABManager.h"
 #include <QSqlQuery>
 #include <QSqlError>
@@ -50,7 +52,7 @@ bool YSqlDABManager::SaveDABData(const FDogAccountBook& dab)
 		dir.mkpath(".");
 	}
 
-	QFile file(dataDir + "/account.json");
+	QFile file(dataDir + "/dab.json");
 	if (!file.open(QIODevice::WriteOnly)) {
 		qDebug() << "Failed to open JSON file for writing";
 		return false;
@@ -75,7 +77,7 @@ bool YSqlDABManager::SaveDABData(const FDogAccountBook& dab)
 bool YSqlDABManager::LoadDABData(FDogAccountBook& dab)
 {
 	QString dataDir = QCoreApplication::applicationDirPath() + "/data";
-	QFile file(dataDir + "/account.json");
+	QFile file(dataDir + "/dab.json");
 	if (!file.exists()) {
 		return false;
 	}

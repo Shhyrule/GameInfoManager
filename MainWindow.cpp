@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "MainWindow.h"
 
 YMainWindow::YMainWindow(QWidget *parent)

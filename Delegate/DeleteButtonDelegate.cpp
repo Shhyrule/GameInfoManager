@@ -1,3 +1,5 @@
+﻿// SPDX-License-Identifier: MIT
+
 #include "DeleteButtonDelegate.h"
 
 #include <QStyleOptionButton>
@@ -8,21 +10,11 @@ YDeleteButtonDelegate::YDeleteButtonDelegate(QWidget* parent):QStyledItemDelegat
 {
 }
 
-void YDeleteButtonDelegate::SetMargin(const QMargins& new_margin)
-{
-	margin = new_margin;
-}
-
-QMargins YDeleteButtonDelegate::GetMargin() const
-{
-	return margin;
-}
-
 void YDeleteButtonDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
 	QStyleOptionButton sob;
-	sob.rect = option.rect.adjusted(margin.left(), margin.top(), -margin.right(), -margin.bottom());
-	sob.text = QString::fromLocal8Bit("ɾ��");
+	sob.rect = option.rect.adjusted(3, 1, -3, -1);
+	sob.text = tr("删除");
 	sob.state = QStyle::State_Enabled;
 
 	if (option.state & QStyle::State_MouseOver) {
@@ -39,7 +31,7 @@ bool YDeleteButtonDelegate::editorEvent(QEvent* event, QAbstractItemModel* model
 {
 	if (event->type() == QEvent::MouseButtonRelease) {
 		auto mouse_event = static_cast<QMouseEvent*>(event);
-		QRect rect = option.rect.adjusted(margin.left(), margin.top(), -margin.right(), -margin.bottom());
+		QRect rect = option.rect.adjusted(3, 1, -3, -1);
 		if (rect.contains(mouse_event->pos())) {
 			emit clicked(index);
 			return true;

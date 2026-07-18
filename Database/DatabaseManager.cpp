@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "DatabaseManager.h"
 #include <QCoreApplication>
 #include <QDir>
@@ -36,12 +38,12 @@ bool YDatabaseManager::InitDatabase()
 {
 	QString appDir = QCoreApplication::applicationDirPath();
 	QString dataDir = appDir + "/data";
- QDir dir(dataDir);
+	QDir dir(dataDir);
 	if (!dir.exists()) {
 		dir.mkpath(".");
 	}
 
-	QString dbPath = dataDir + "/account.db";
+	QString dbPath = dataDir + "/data.db";
 	m_database = QSqlDatabase::addDatabase("QSQLITE");
 	m_database.setDatabaseName(dbPath);
 
