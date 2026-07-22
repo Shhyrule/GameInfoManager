@@ -13,14 +13,18 @@ YMainWindow::YMainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //隐藏右侧左边栏
     SetRightLayoutVisible(false);
 
+    //加载设置文件
     FSettingInfo setting;
     YSettingManager().LoadSettings(setting);
 
+    //初始化设置窗口
     SettingWidget = new YSettingWidget(this);
     ui->StackedWidget->addWidget(SettingWidget);
 
+    //初始化DAB窗口
     if (setting.dab_widget_visible) {
         auto dab_item = new QListWidgetItem();
         dab_item->setText(tr("DAB"));
@@ -30,6 +34,7 @@ YMainWindow::YMainWindow(QWidget *parent)
         ui->StackedWidget->addWidget(DABWidget);
     }
 
+    //根据设置文件选择初始窗口
     TurnToMode(setting.default_window_id);
 
     connect(ui->PushButtonHideList, &QPushButton::clicked, this, &YMainWindow::_on_buttonHide_clicked);

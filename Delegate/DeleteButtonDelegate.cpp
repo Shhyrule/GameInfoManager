@@ -30,6 +30,8 @@ void YDeleteButtonDelegate::paint(QPainter* painter, const QStyleOptionViewItem&
 bool YDeleteButtonDelegate::editorEvent(QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem& option, const QModelIndex& index)
 {
 	if (event->type() == QEvent::MouseButtonRelease) {
+		qDebug() << "Delete button is pressed.";
+
 		auto mouse_event = static_cast<QMouseEvent*>(event);
 		QRect rect = option.rect.adjusted(3, 1, -3, -1);
 		if (rect.contains(mouse_event->pos())) {
