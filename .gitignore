@@ -1,4 +1,7 @@
-﻿# Prerequisites
+﻿#
+GameInfoManager/
+
+# Prerequisites
 *.d
 
 # Compiled Object files

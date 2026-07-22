@@ -38,8 +38,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="YMainWindow.qrc">
-            <normaloff>:/icons/Resource/Icons/gear-duotone.svg</normaloff>:/icons/Resource/Icons/gear-duotone.svg</iconset>
+           <iconset resource="../Res.qrc">
+            <normaloff>:/Icons/Resource/Icons/gear-duotone.svg</normaloff>:/Icons/Resource/Icons/gear-duotone.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -64,8 +64,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="YMainWindow.qrc">
-            <normaloff>:/icons/Resource/Icons/arrow-square-left-fill.svg</normaloff>:/icons/Resource/Icons/arrow-square-left-fill.svg</iconset>
+           <iconset resource="../Res.qrc">
+            <normaloff>:/Icons/Resource/Icons/arrow-square-left-fill.svg</normaloff>:/Icons/Resource/Icons/arrow-square-left-fill.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -90,8 +90,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="YMainWindow.qrc">
-          <normaloff>:/icons/Resource/Icons/arrow-square-right-fill.svg</normaloff>:/icons/Resource/Icons/arrow-square-right-fill.svg</iconset>
+         <iconset resource="../Res.qrc">
+          <normaloff>:/Icons/Resource/Icons/arrow-square-right-fill.svg</normaloff>:/Icons/Resource/Icons/arrow-square-right-fill.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -110,8 +110,8 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="YMainWindow.qrc">
-          <normaloff>:/icons/Resource/Icons/gear-duotone.svg</normaloff>:/icons/Resource/Icons/gear-duotone.svg</iconset>
+         <iconset resource="../Res.qrc">
+          <normaloff>:/Icons/Resource/Icons/gear-duotone.svg</normaloff>:/Icons/Resource/Icons/gear-duotone.svg</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -149,7 +149,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="YMainWindow.qrc"/>
+  <include location="../Res.qrc"/>
  </resources>
  <connections/>
 </ui>

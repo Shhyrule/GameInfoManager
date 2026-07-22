@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Icons">
+        <file>Resource/Icons/arrow-square-left-fill.svg</file>
+        <file>Resource/Icons/arrow-square-right-fill.svg</file>
+        <file>Resource/Icons/file-plus-duotone.svg</file>
+        <file>Resource/Icons/file-x-duotone.svg</file>
+        <file>Resource/Icons/gear-duotone.svg</file>
+        <file>Resource/Icons/note-pencil-duotone.svg</file>
+        <file>Resource/Icons/plus-duotone.svg</file>
+    </qresource>
+</RCC>

@@ -1,11 +1,12 @@
-// SPDX-License-Identifier: MIT
+ï»¿// SPDX-License-Identifier: MIT
 
 #include "MainWindow.h"
 
-#include "Widgets/DABWidget.h"
-#include "Widgets/SettingWidget.h"
-#include "DataStruct/SettingInfo.h"
-#include "Database/SettingManager.h"
+#include "DABWidget.h"
+#include "SettingWidget.h"
+#include "GameCoverWidget.h"
+#include "../DataStruct/SettingInfo.h"
+#include "../Database/SettingManager.h"
 
 YMainWindow::YMainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,18 +14,28 @@ YMainWindow::YMainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //Òş²ØÓÒ²à×ó±ßÀ¸
+    //éšè—å³ä¾§å·¦è¾¹æ 
     SetRightLayoutVisible(false);
 
-    //¼ÓÔØÉèÖÃÎÄ¼ş
+    //åŠ è½½è®¾ç½®æ–‡ä»¶
     FSettingInfo setting;
     YSettingManager().LoadSettings(setting);
 
-    //³õÊ¼»¯ÉèÖÃ´°¿Ú
+    //åˆå§‹åŒ–è®¾ç½®çª—å£
     SettingWidget = new YSettingWidget(this);
     ui->StackedWidget->addWidget(SettingWidget);
 
-    //³õÊ¼»¯DAB´°¿Ú
+    //åˆå§‹åŒ–GCçª—å£
+    if (setting.gc_widget_visible) {
+        auto gc_item = new QListWidgetItem();
+        gc_item->setText(tr("æ¸¸æˆå°é¢ç®¡ç†"));
+        gc_item->setData(Qt::UserRole + 1, EWindowMode::COVER_MODE);
+        ui->ModeListWidget->addItem(gc_item);
+        GCWidget = new YGameCoverWidget(this);
+        ui->StackedWidget->addWidget(GCWidget);
+    }
+
+    //åˆå§‹åŒ–DABçª—å£
     if (setting.dab_widget_visible) {
         auto dab_item = new QListWidgetItem();
         dab_item->setText(tr("DAB"));
@@ -34,7 +45,7 @@ YMainWindow::YMainWindow(QWidget *parent)
         ui->StackedWidget->addWidget(DABWidget);
     }
 
-    //¸ù¾İÉèÖÃÎÄ¼şÑ¡Ôñ³õÊ¼´°¿Ú
+    //æ ¹æ®è®¾ç½®æ–‡ä»¶é€‰æ‹©åˆå§‹çª—å£
     TurnToMode(setting.default_window_id);
 
     connect(ui->PushButtonHideList, &QPushButton::clicked, this, &YMainWindow::_on_buttonHide_clicked);
@@ -89,6 +100,9 @@ void YMainWindow::TurnToMode(const int& new_mode)
     switch (new_mode) {
     case EWindowMode::DAB_MODE:
         ui->StackedWidget->setCurrentWidget(DABWidget);
+        break;
+    case EWindowMode::COVER_MODE:
+        ui->StackedWidget->setCurrentWidget(GCWidget);
         break;
     }
 }

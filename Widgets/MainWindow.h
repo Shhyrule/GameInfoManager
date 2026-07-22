@@ -2,7 +2,7 @@
  * @file MainWindow.h
  * @brief 定义程序的主窗口
  * @author Shhyrule
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2026-07-18
  *
  * 本项目采用 MIT 许可证。详细条款见 LICENSE 文件。
@@ -16,6 +16,7 @@
 
 class YSettingWidget;
 class YDABWidget;
+class YGameCoverWidget;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class YMainWindowClass; };
@@ -29,11 +30,13 @@ class YMainWindow : public QMainWindow
 private:
     Ui::YMainWindowClass *ui;
 
+    YGameCoverWidget* GCWidget;
     YDABWidget* DABWidget;
     YSettingWidget* SettingWidget;
 
 private:
     enum EWindowMode {
+        COVER_MODE,
         DAB_MODE,
         SETTING_MODE,
     };

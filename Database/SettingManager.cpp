@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "SettingManager.h"
 #include <QCoreApplication>
 #include <QDir>

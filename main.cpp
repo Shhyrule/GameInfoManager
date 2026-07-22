@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-#include "MainWindow.h"
+#include "Widgets/MainWindow.h"
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 #include "SettingWidget.h"
 
 YSettingWidget::YSettingWidget(QWidget *parent)
