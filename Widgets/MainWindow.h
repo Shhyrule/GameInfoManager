@@ -16,7 +16,6 @@
 
 class YSettingWidget;
 class YDABWidget;
-class YGameCoverWidget;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class YMainWindowClass; };
@@ -30,13 +29,11 @@ class YMainWindow : public QMainWindow
 private:
     Ui::YMainWindowClass *ui;
 
-    YGameCoverWidget* GCWidget;
     YDABWidget* DABWidget;
     YSettingWidget* SettingWidget;
 
 private:
     enum EWindowMode {
-        COVER_MODE,
         DAB_MODE,
         SETTING_MODE,
     };

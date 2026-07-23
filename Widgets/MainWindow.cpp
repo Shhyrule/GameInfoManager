@@ -4,7 +4,6 @@
 
 #include "DABWidget.h"
 #include "SettingWidget.h"
-#include "GameCoverWidget.h"
 #include "../DataStruct/SettingInfo.h"
 #include "../Database/SettingManager.h"
 
@@ -24,16 +23,6 @@ YMainWindow::YMainWindow(QWidget *parent)
     //初始化设置窗口
     SettingWidget = new YSettingWidget(this);
     ui->StackedWidget->addWidget(SettingWidget);
-
-    //初始化GC窗口
-    if (setting.gc_widget_visible) {
-        auto gc_item = new QListWidgetItem();
-        gc_item->setText(tr("游戏封面管理"));
-        gc_item->setData(Qt::UserRole + 1, EWindowMode::COVER_MODE);
-        ui->ModeListWidget->addItem(gc_item);
-        GCWidget = new YGameCoverWidget(this);
-        ui->StackedWidget->addWidget(GCWidget);
-    }
 
     //初始化DAB窗口
     if (setting.dab_widget_visible) {
@@ -100,9 +89,6 @@ void YMainWindow::TurnToMode(const int& new_mode)
     switch (new_mode) {
     case EWindowMode::DAB_MODE:
         ui->StackedWidget->setCurrentWidget(DABWidget);
-        break;
-    case EWindowMode::COVER_MODE:
-        ui->StackedWidget->setCurrentWidget(GCWidget);
         break;
     }
 }
