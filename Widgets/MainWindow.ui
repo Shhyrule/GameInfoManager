@@ -34,6 +34,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item alignment="Qt::AlignmentFlag::AlignLeft">
          <widget class="QPushButton" name="LeftSettingPushButton">
+          <property name="toolTip">
+           <string>设置</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -59,6 +62,9 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>收起侧边栏</string>
           </property>
           <property name="text">
            <string/>
@@ -86,6 +92,9 @@
      <layout class="QVBoxLayout" name="RightLayout">
       <item>
        <widget class="QPushButton" name="PushButtonShowList">
+        <property name="toolTip">
+         <string>展开侧边栏</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -106,6 +115,9 @@
       </item>
       <item alignment="Qt::AlignmentFlag::AlignTop">
        <widget class="QPushButton" name="RightSettingPushButton">
+        <property name="toolTip">
+         <string>设置</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -137,6 +149,9 @@
      <layout class="QVBoxLayout" name="StackedWidgetBox">
       <item>
        <widget class="QStackedWidget" name="StackedWidget">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="currentIndex">
          <number>-1</number>
         </property>

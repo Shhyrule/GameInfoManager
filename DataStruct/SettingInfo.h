@@ -15,5 +15,5 @@ struct FSettingInfo
 {
 	int default_window_id = 0;
 	bool dab_widget_visible = true;
-	bool gc_widget_visible = true;
+	bool gp_widget_visible = true;
 };

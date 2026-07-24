@@ -15,6 +15,7 @@
 #include "ui_MainWindow.h"
 
 class YSettingWidget;
+class YGameProfileWidget;
 class YDABWidget;
 
 QT_BEGIN_NAMESPACE
@@ -29,11 +30,13 @@ class YMainWindow : public QMainWindow
 private:
     Ui::YMainWindowClass *ui;
 
+    YGameProfileWidget* GPWidget;
     YDABWidget* DABWidget;
     YSettingWidget* SettingWidget;
 
 private:
     enum EWindowMode {
+        GP_MODE,
         DAB_MODE,
         SETTING_MODE,
     };

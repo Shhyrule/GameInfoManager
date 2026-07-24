@@ -4,6 +4,7 @@
 
 #include "DABWidget.h"
 #include "SettingWidget.h"
+#include "GameProfileWidget.h"
 #include "../DataStruct/SettingInfo.h"
 #include "../Database/SettingManager.h"
 
@@ -23,6 +24,16 @@ YMainWindow::YMainWindow(QWidget *parent)
     //初始化设置窗口
     SettingWidget = new YSettingWidget(this);
     ui->StackedWidget->addWidget(SettingWidget);
+
+    //初始化GP窗口
+    if (setting.gp_widget_visible) {
+        auto gp_item = new QListWidgetItem();
+        gp_item->setText(tr("游戏简介管理"));
+        gp_item->setData(Qt::UserRole + 1, EWindowMode::GP_MODE);
+        ui->ModeListWidget->addItem(gp_item);
+        GPWidget = new YGameProfileWidget(this);
+        ui->StackedWidget->addWidget(GPWidget);
+    }
 
     //初始化DAB窗口
     if (setting.dab_widget_visible) {
@@ -89,6 +100,9 @@ void YMainWindow::TurnToMode(const int& new_mode)
     switch (new_mode) {
     case EWindowMode::DAB_MODE:
         ui->StackedWidget->setCurrentWidget(DABWidget);
+        break;
+    case EWindowMode::GP_MODE:
+        ui->StackedWidget->setCurrentWidget(GPWidget);
         break;
     }
 }
